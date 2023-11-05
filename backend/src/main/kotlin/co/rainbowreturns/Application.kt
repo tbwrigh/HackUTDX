@@ -22,9 +22,7 @@ fun Application.module() {
 
     install(CORS) {
         anyHost()
-        allowMethod(HttpMethod.Options)
         allowMethod(HttpMethod.Get)
-        allowHeader("authorization")
         allowCredentials = true
         allowNonSimpleContentTypes = true
 

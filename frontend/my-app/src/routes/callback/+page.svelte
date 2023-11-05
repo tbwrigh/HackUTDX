@@ -2,14 +2,25 @@
 <script>
     import { onMount } from "svelte";
     import { withAuth } from "../auth";
+    import { gender, sexualOrientation, race } from "../Store";
 
-    // let auth = {"token":"none"};
-    // onMount(async () =>{
-    //     const { login } = withAuth();
-    //     login();
-    //     console.log(auth.token)
-    //     // await auth.handleRedirectCallback();
-    // });
+
+    let genderVal = 0;
+    gender.subscribe(val => {genderVal = val})
+
+    let orientationVal = 0;
+    sexualOrientation.subscribe(val => {orientationVal = val})
+
+    let raceVal = 0;
+    race.subscribe(val => {raceVal = val})
+
+    // get data from localhost:5174 
+    onMount(async () => {
+        const res = await fetch(`http://localhost:5174/recommendation/top/10/weights/${genderVal}/${orientationVal}/${raceVal}`);
+        const data = await res.json();
+        console.log(data);
+    });
+
 </script>
 
 <div class="min-h-screen flex flex-col bg-lime-50">
@@ -32,5 +43,7 @@
     </div>
     <h1 class="font-bold text-5xl my-14 m-4">
         Top Options:
+
+        {genderVal} {orientationVal} {raceVal}
     </h1>
 </div>

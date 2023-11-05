@@ -1,6 +1,7 @@
 <!-- form page -->
 <script>
     import { onMount } from 'svelte';
+    import { gender, sexualOrientation, race } from '../Store'
 
     let genderValue = 5; // Default value
     let orientationValue = 5;
@@ -14,14 +15,17 @@
         
         genderRange.addEventListener('input', (e) => {
             genderValue = parseInt(e.target.value, 10);
+            gender.set(genderValue);
         });
 
         orientationRange.addEventListener('input', (e) => {
             orientationValue = parseInt(e.target.value, 10);
+            sexualOrientation.set(orientationValue);
         });
 
         raceRange.addEventListener('input', (e) => {
             raceValue = parseInt(e.target.value, 10);
+            race.set(raceValue);
         });
     });
 </script>
