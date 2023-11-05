@@ -54,7 +54,7 @@
             <div id="race-value" class="text-gray-900 dark:text-white mt-2">{raceValue}</div>
             <div class="my-1"></div>
             <a href="/callback">
-                <button class="bg-blue-500 py-1 px-4 rounded m-3">
+                <button class="bg-blue-500 text-white py-1 px-4 rounded m-3">
                     Submit
                 </button>
             </a>
