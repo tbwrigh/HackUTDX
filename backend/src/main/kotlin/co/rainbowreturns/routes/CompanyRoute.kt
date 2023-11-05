@@ -65,6 +65,51 @@ fun Route.companyRouting() {
                             }
                             .contains(company.sector)
                         }
+                    (key=="sortOrder") -> {
+                        if (value[0].lowercase().split(" ").joinToString(separator = " ") {
+                            word -> word.replaceFirstChar { firstChar ->
+                                firstChar.uppercase()
+                            }
+                        } == "weights") {
+                            var gw = 0
+                            var sow = 0
+                            var rw = 0
+                            var tw = 0
+                            value.takeLast(value.size-1).forEach {
+                                weightStr ->
+                                    val wSplit = weightStr.split(":")
+                                    val weight = wSplit[0].lowercase().split(" ").joinToString(separator = " ") {
+                                        word -> word.replaceFirstChar { firstChar ->
+                                            firstChar.uppercase()
+                                        }
+                                    }
+                                    when {
+                                        (weight=="Gender") -> gw = wSplit[1].toInt()
+                                        (weight=="Sexual Orientation") -> sow = wSplit[1].toInt()
+                                        (weight=="Race") -> rw = wSplit[1].toInt()
+                                        (weight=="Total") -> tw = wSplit[1].toInt()
+                                    }
+                            }
+
+                            desired = desired?.sortedBy { company -> -1*gw*company.genderScore + -1*sow*company.soScore + -1*rw*company.raceScore + -1*tw*company.totalScore }
+                        }else {
+                            val term = value[0].lowercase().split(" ").joinToString(separator = " ") {
+                                word -> word.replaceFirstChar { firstChar ->
+                                    firstChar.uppercase()
+                                }
+                            }
+                            when {
+                                (term=="Gender") -> desired =
+                                    desired?.sortedBy { company: Company -> -1*company.genderScore }
+                                (term=="Sexual Orientation") -> desired =
+                                    desired?.sortedBy { company: Company -> -1*company.soScore }
+                                (term=="Race") -> desired =
+                                    desired?.sortedBy { company: Company -> -1*company.raceScore }
+                                (term=="Total") -> desired =
+                                    desired?.sortedBy { company: Company -> -1*company.totalScore }
+                            }
+                        }
+                    }
                 }
             }
 
