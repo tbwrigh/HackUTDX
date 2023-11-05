@@ -19,6 +19,12 @@
         const res = await fetch(`http://localhost:5174/recommendation/top/10/weights/${genderVal}/${orientationVal}/${raceVal}`);
         const data = await res.json();
         console.log(data);
+
+        for (let element of data) {
+            const subres = await fetch(`http://localhost:5174/stock/price/${element.ticker}`);
+            const subdata = await subres.json();
+            console.log(subdata);
+        }
     });
 
 </script>
