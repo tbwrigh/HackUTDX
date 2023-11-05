@@ -58,7 +58,3 @@
         <h3 class="font-normal text-gray-700 dark:text-gray-400">Stockticker: </h3>
     </div>
 </div>
-
-Company
-Sector
-Stockticker
