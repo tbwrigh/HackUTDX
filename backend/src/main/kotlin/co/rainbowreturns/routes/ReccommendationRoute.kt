@@ -1,6 +1,7 @@
 package co.rainbowreturns.routes
 
 import co.rainbowreturns.models.Companies
+import co.rainbowreturns.models.Company
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -38,6 +39,35 @@ fun Route.recommendationRouting() {
                 )
 
             call.respond(desired!!)
+        }
+
+        get("/top/{n?}/weights/{gender?}/{so?}/{race?}") {
+            var num = call.parameters["n"]?.toInt()
+            if (num == null) {
+                num = 5
+            }
+
+            var gw = call.parameters["gender"]?.toInt()
+            if (gw == null) {
+                gw = 1
+            }
+
+            var sow = call.parameters["so"]?.toInt()
+            if (sow == null) {
+                sow = 1
+            }
+
+            var rw = call.parameters["race"]?.toInt()
+            if (rw == null) {
+                rw = 1
+            }
+
+            val desired = Companies.Companion.companies?.sortedBy { company: Company ->
+                -1*gw*company.genderScore + -1*sow*company.soScore + -1*rw*company.raceScore
+            }?.take(num!!)
+
+            call.respond(desired!!)
+
         }
     }
 }

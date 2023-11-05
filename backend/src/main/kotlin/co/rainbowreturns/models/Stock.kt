@@ -17,9 +17,6 @@ import java.util.Random
 @Serializable
 data class AlphaVantageResponse(val `Time Series (Daily)`: JsonObject)
 
-@Serializable
-data class AlphaVantageDayResponse(val open: Int, val high: Int, val low: Int, val close: Int, val volume: Int)
-
 suspend fun fetchCurrentPrice(symbol: String): Double {
     val client = HttpClient(CIO) {
         install(ContentNegotiation) {

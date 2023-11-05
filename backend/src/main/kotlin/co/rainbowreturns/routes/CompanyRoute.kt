@@ -37,6 +37,31 @@ fun Route.companyRouting() {
             val desired = Companies.Companion.companies?.filter { it.sector == sector }
             call.respond(desired!!)
         }
+
+        get("/advanced") {
+            val filters = call.request.queryParameters.toMap()
+
+            println(filters.toString())
+
+            var desired = Companies.Companion.companies
+
+            filters.forEach { (key, value) ->
+                when {
+                    (key == "minGender") -> desired =
+                        desired?.filter { company: Company -> company.genderScore >= value[0].toInt() }
+                    (key == "minSexualOrientation") -> desired =
+                        desired?.filter { company: Company -> company.soScore >= value[0].toInt() }
+                    (key == "minRace") -> desired =
+                        desired?.filter { company: Company -> company.raceScore >= value[0].toInt() }
+                    (key == "minOverall") -> desired =
+                        desired?.filter { company: Company -> company.totalScore >= value[0].toInt() }
+                    (key=="sector") -> desired =
+                        desired?.filter { company: Company -> value.contains(company.sector) }
+                }
+            }
+
+            call.respond(desired!!)
+        }
     }
 
     route("/sectors") {
