@@ -5,7 +5,8 @@
     <h2 class ="text-2x1 font-bold text-white m-10">
         The Stock Price Portfolio Catered To Your Preferences
     </h2>
-    <button class="bg-violet-500 py-2 px-4 rounded m-3">
+    <a href="/home"><button class="bg-violet-500 py-2 px-4 rounded m-3">
         Sign Up/Log In
     </button>
+    </a>
 </div>
