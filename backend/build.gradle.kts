@@ -36,3 +36,18 @@ dependencies {
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
+
+ktor {
+    docker {
+        jreVersion.set(JavaVersion.VERSION_17)
+        localImageName.set("hackutd-backend")
+        imageTag.set("latest")
+        portMappings.set(listOf(
+            io.ktor.plugin.features.DockerPortMapping(
+                5174,
+                5174,
+                io.ktor.plugin.features.DockerPortMappingProtocol.TCP
+            )
+        ))
+    }
+}

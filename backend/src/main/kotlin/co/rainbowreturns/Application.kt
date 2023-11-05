@@ -1,5 +1,6 @@
 package co.rainbowreturns
 
+import co.rainbowreturns.models.Companies
 import com.auth0.jwk.JwkProviderBuilder
 import co.rainbowreturns.plugins.*
 import co.rainbowreturns.utils.PropertiesLoader
