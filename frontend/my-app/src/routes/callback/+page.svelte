@@ -46,4 +46,13 @@
 
         {genderVal} {orientationVal} {raceVal}
     </h1>
+    <div class="flex flex-col items-center justify-center h-auto mb-5 block max-w-sm p-10 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Company</h5>
+        <p class="font-normal text-gray-700 dark:text-gray-400">Sector</p>
+        <h3 class="font-normal text-gray-700 dark:text-gray-400">Stockticker: </h3>
+    </div>
 </div>
+
+Company
+Sector
+Stockticker
