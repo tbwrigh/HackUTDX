@@ -3,6 +3,7 @@ package co.rainbowreturns
 import co.rainbowreturns.models.Companies
 import com.auth0.jwk.JwkProviderBuilder
 import co.rainbowreturns.plugins.*
+import co.rainbowreturns.routes.companyRouting
 import co.rainbowreturns.utils.PropertiesLoader
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -11,6 +12,7 @@ import io.ktor.http.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*;
 import io.ktor.server.plugins.cors.routing.*;
+import io.ktor.server.routing.*
 import java.util.concurrent.TimeUnit
 
 fun main() {
@@ -63,4 +65,8 @@ fun Application.module() {
 
     configureSerialization()
     configureRouting()
+
+    routing {
+        companyRouting()
+    }
 }

@@ -13,8 +13,8 @@ class Companies {
       val companies = inputStream?.bufferedReader()?.readLines()?.drop(1)?.map { line ->
           val columns = line.split(",")
           Company(
-              companyName = columns[0].trim(),
-              stockTicker = columns[1].trim(),
+              companyName = columns[1].trim(),
+              stockTicker = columns[0].trim(),
               sector = columns[2].trim(),
               genderScore = columns[3].trim().toInt(),
               soScore = columns[4].trim().toInt(),
