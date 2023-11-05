@@ -33,7 +33,7 @@
 <div class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 via-indigo-500 to-purple-500">
     <div class="bg-gray-50 h-96 rounded-lg max-w-xl w-full mt-10">
         <h1 class="font-bold text-1xl mb-6">
-            On a scale of 1-10 with 1 being the lowest and 10 being the highest, please select how important each of the categories are to you when choosing companies to invest in:
+            On a scale of 1-10 with 1 being the lowest and 10 being the highest, please select how important each of the categories are to you when deciding which companies to invest in:
         </h1>
         <div class="flex flex-col items-center justify-center">
             <!-- gender -->

@@ -39,7 +39,7 @@
 
 
         <a href="/search">
-            <button class="bg-blue-500 py-5 px-5 rounded m-3">
+            <button class="bg-blue-500 py-5 px-5 rounded m-3 text-white">
                 Search
             </button>
         </a>

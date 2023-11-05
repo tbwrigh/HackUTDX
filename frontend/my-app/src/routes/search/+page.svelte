@@ -30,22 +30,18 @@
 
         genderRange.addEventListener('input', (e) => {
             genderValue = parseInt(e.target.value, 10);
-            gender.set(genderValue);
         });
 
         orientationRange.addEventListener('input', (e) => {
             orientationValue = parseInt(e.target.value, 10);
-            sexualorientation.set(orientationValue);
         });
 
         raceRange.addEventListener('input', (e) => {
             raceValue = parseInt(e.target.value, 10);
-            race.set(raceValue);
         });
 
         totalRange.addEventListener('input', (e) => {
             totalValue = parseInt(e.target.value, 10);
-            total.set(totalValue);
         });
 
 
@@ -77,13 +73,10 @@
 
 </script>
 
-<aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+<aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-lime-50" aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <label for="gender-min">Min Gender Score:</label>
-<div class="flex items-center">
 <input type="range" min="0" max="10" id="gender-min" name="gender-min">
-<!-- <div id="gender-value" class="text-gray-900 dark:text-white absolute ml-2">{genderValue}</div> -->
-</div>
 <br>
 <label for="orientation-min">Min Sexual Orientation Score:</label>
 <input type="range" min="0" max="10" id="orientation-min" name="orientation-min">
