@@ -1,10 +1,13 @@
+<!-- opening page -->
 <script>
     import { onMount } from "svelte";
-    import { withAuth } from "./auth"
+    import { withAuth } from "./auth";
     let auth = null
     onMount(()=>{
         auth=withAuth()
         console.log(document)
+
+        
     })
 
 </script>
@@ -15,7 +18,8 @@
     <h2 class ="text-2xl font-bold text-white m-10">
         Invest in Companies That Match Your Morals!
     </h2>
-    <button class="bg-violet-500 py-2 px-4 rounded m-3" on:click={auth.login}>
+    <a href="/home"><button class="bg-violet-500 py-2 px-4 rounded m-3">
         Sign Up/Log In
     </button>
+    </a>
 </div>

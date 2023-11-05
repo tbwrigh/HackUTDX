@@ -15,7 +15,7 @@ export function withAuth(): {
       clientId: "dBzUP6GLpqTy3E4MRB1vAciuor9lH02p",
       authorizationParams: {
         redirect_uri: "http://localhost:5173/callback",
-        audience: "https://dev-qr3ba0z0ebgps6fg.us.auth0.com/api/v2/",
+        audience: "http://localhost:5174",
       },
     });
   }
