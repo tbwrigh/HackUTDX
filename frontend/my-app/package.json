@@ -22,6 +22,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@auth0/auth0-spa-js": "^2.1.2",
 		"@sveltejs/adapter-static": "^2.0.3",
 		"svelte-preprocess": "^5.0.4",
 		"svelte-routing": "^2.6.0"
