@@ -30,18 +30,22 @@
 
         genderRange.addEventListener('input', (e) => {
             genderValue = parseInt(e.target.value, 10);
+            gender.set(genderValue);
         });
 
         orientationRange.addEventListener('input', (e) => {
             orientationValue = parseInt(e.target.value, 10);
+            sexualorientation.set(orientationValue);
         });
 
         raceRange.addEventListener('input', (e) => {
             raceValue = parseInt(e.target.value, 10);
+            race.set(raceValue);
         });
 
         totalRange.addEventListener('input', (e) => {
             totalValue = parseInt(e.target.value, 10);
+            total.set(totalValue);
         });
 
 
@@ -76,7 +80,10 @@
 <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <label for="gender-min">Min Gender Score:</label>
+<div class="flex items-center">
 <input type="range" min="0" max="10" id="gender-min" name="gender-min">
+<!-- <div id="gender-value" class="text-gray-900 dark:text-white absolute ml-2">{genderValue}</div> -->
+</div>
 <br>
 <label for="orientation-min">Min Sexual Orientation Score:</label>
 <input type="range" min="0" max="10" id="orientation-min" name="orientation-min">
@@ -95,21 +102,29 @@
     {/each}
 </select>
 
-<button id="submit">Submit</button>
-     </div>
+<!-- <button id="submit">Submit</button> -->
+<div class="mt-4">
+<button id="submit" class="text-white text-center absolute w-full right-0 bottom-0 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+    </div>
 </aside>
 
 <div class="p-4 sm:ml-64">
     <div>
+        
         {#each searchResults as result}
-            <div style="padding:20px;">
-                <h1>{result.companyName}</h1>
-                <h2>{result.stockTicker}</h2>
-                <h3>{result.sector}</h3>
-                <h4>{result.genderScore}</h4>
-                <h4>{result.soScore}</h4>
-                <h4>{result.raceScore}</h4>
-                <h4>{result.totalScore}</h4>
+       
+            <div class="flex max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" style="padding:20px;">
+                <div class="flex flex-col justify-left w-3/4 pr-8">
+                <h1 class="font-bold text-4xl">{result.companyName}</h1>
+                <h2 class="text-2x1">{result.stockTicker}</h2>
+                <h3 class="text-1x1">{result.sector}</h3>
+                </div>
+                <div class="flex flex-col justify-right w-1/2">
+                <h4>Gender Score: {result.genderScore}</h4>
+                <h4>Sexual Orientation Score: {result.soScore}</h4>
+                <h4>Race/Ethnicity Score: {result.raceScore}</h4>
+                <h4 class="font-bold">Total: {result.totalScore}</h4>
+                </div>
             </div>
         {/each}
         
