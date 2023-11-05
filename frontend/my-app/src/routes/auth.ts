@@ -11,11 +11,11 @@ export function withAuth(): {
 } {
   function getClient(): Promise<Auth0Client> {
     return createAuth0Client({
-      domain: "klee-test.au.auth0.com",
-      clientId: "GGOFsf1eiSGvYOBkeDHAAJopE5qRpzN7",
+      domain: "dev-qr3ba0z0ebgps6fg.us.auth0.com",
+      clientId: "dBzUP6GLpqTy3E4MRB1vAciuor9lH02p",
       authorizationParams: {
-        redirect_uri: window.location.href,
-        audience: "MySweetAPI",
+        redirect_uri: "http://localhost:5173/callback",
+        audience: "https://dev-qr3ba0z0ebgps6fg.us.auth0.com/api/v2/",
       },
     });
   }

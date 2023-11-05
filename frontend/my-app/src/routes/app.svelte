@@ -5,6 +5,7 @@
 
     import type { User } from '@auth0/auth0-spa-js';
     import { withAuth } from './auth';
+    import Callback from './callback.svelte';
 
     const auth = withAuth();
 
@@ -22,6 +23,7 @@
 <Router>
     <Route path="/" component={Opening} />
     <Route path="/home" component={Home} />
+    <Route path="/callback" component={Callback} />
 </Router>
 
 <main>
@@ -42,55 +44,3 @@
         {/if}
     </div>
 </main>
-
-<style>
-    * {
-        box-sizing: border-box;
-    }
-
-    button {
-        padding: 1rem;
-        background-color: aqua;
-        color: black;
-        transition: background-color 500ms ease;
-    }
-
-    button:hover {
-        background-color: aquamarine;
-    }
-
-    pre {
-        max-width: 100%;
-        word-wrap: break-word;
-        text-align: left;
-    }
-
-    img.profile {
-        border-radius: 50%;
-        border: 0.5rem solid aqua;
-        opacity: 0.8;
-        transition: opacity 500ms ease, border-color 500ms ease;
-    }
-
-    img.profile:hover {
-        opacity: 1;
-        border-color: aquamarine;
-    }
-
-    div.profile {
-        margin: 1rem;
-    }
-
-    pre {
-        opacity: 0.5;
-        border: 1px solid black;
-        transition: opacity 500ms ease, border-color 500ms ease;
-        padding: 1rem;
-        white-space: pre-wrap;
-    }
-
-    pre:hover {
-        opacity: 1;
-        border-color: aquamarine;
-    }
-</style>
