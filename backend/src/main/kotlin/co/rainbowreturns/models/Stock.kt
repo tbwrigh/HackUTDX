@@ -1,5 +1,6 @@
 package co.rainbowreturns.models
 
+import co.rainbowreturns.utils.PropertiesLoader
 import io.ktor.client.*
 import io.ktor.client.call.*
 import kotlinx.serialization.SerialName
@@ -24,7 +25,7 @@ suspend fun fetchCurrentPrice(symbol: String): JsonObject? {
         }
     }
 
-    val apiKey = "3C33X6B8Z6LQ054G"
+    val apiKey = PropertiesLoader.Companion.properties?.get("STOCK_API_KEY")
     val url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=$symbol&apikey=$apiKey"
     try {
         val response: AlphaVantageResponse = client.get(url).body()
