@@ -65,8 +65,4 @@ fun Application.module() {
 
     configureSerialization()
     configureRouting()
-
-    routing {
-        companyRouting()
-    }
 }
