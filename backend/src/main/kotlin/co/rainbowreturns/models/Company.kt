@@ -22,5 +22,6 @@ class Companies {
               totalScore = columns[6].trim().toInt()
           )
       }
+      val sectors = companies?.map { company -> company.sector }?.toSet()
   }
 }
