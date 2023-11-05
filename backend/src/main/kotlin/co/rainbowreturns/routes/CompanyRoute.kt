@@ -56,7 +56,15 @@ fun Route.companyRouting() {
                     (key == "minOverall") -> desired =
                         desired?.filter { company: Company -> company.totalScore >= value[0].toInt() }
                     (key=="sector") -> desired =
-                        desired?.filter { company: Company -> value.contains(company.sector) }
+                        desired?.filter { company: Company -> value.map {
+                                it.lowercase().split(" ").joinToString(separator = " ") {
+                                    word -> word.replaceFirstChar { firstChar ->
+                                        firstChar.uppercase()
+                                    }
+                                }
+                            }
+                            .contains(company.sector)
+                        }
                 }
             }
 
